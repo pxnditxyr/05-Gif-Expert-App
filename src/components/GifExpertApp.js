@@ -21,11 +21,11 @@ export const GifExpertApp = () => {
 			<ol>
 				{
 					categories.map( category =>
-						//{/* <li key={ category }> { category } </li> */}
 						<GifGrid
 							key={ category }
 							category={ category }
 						/>
+						//{/* <li key={ category }> { category } </li> */}
 					)
 				};
 			</ol>
