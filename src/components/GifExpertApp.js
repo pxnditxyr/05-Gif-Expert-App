@@ -27,7 +27,7 @@ export const GifExpertApp = () => {
 						/>
 						//{/* <li key={ category }> { category } </li> */}
 					)
-				};
+				}
 			</ol>
 		</>
 	);
