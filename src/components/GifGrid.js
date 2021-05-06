@@ -2,39 +2,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useFetchGifs } from '../hooks/useFetchGifs';
-// import { GifGridItem } from './GifGridItem';
+import { GifGridItem } from './GifGridItem';
 // import { getGifs } from '../helpers/getGifs';
 
 
 export const GifGrid = ({ category }) => {
 
-
-	const { data, loading } = useFetchGifs();
-	console.log( data );
-	console.log( loading );
-	// const [ images, setImages ] = useState( [] );
-	// useEffect( () => {
-	// 	getGifs( category )
-	// 		.then( imgs => {
-	// 			setImages( imgs );
-	// 		});
-	// }, [ category ])
-
+	const { data:gifs, loading } = useFetchGifs( category );
 
 	return (
 		<>
 			<h2> { category } </h2>
-			{ loading ? 'Loading...' : 'Data charge done' }
-			{/* <div className="card-grid"> */}
-			{/* 	{ */}
-			{/* 		images.map( img => ( */}
-			{/* 			<GifGridItem */}
-			{/* 				key={ img.id } */}
-			{/* 				{ ...img  } */}
-			{/* 			/> */}
-			{/* 		)) */}
-			{/* 	} */}
-			{/* </div> */}
+			
+			{ loading && <p> Loading... </p> }
+
+			<div className="card-grid">
+				{
+					gifs.map( gif => (
+						<GifGridItem
+							key={ gif.id }
+							{ ...gif }
+						/>
+					))
+				}
+			</div>
 		</>
 	);
 };
