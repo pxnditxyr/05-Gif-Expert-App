@@ -12,9 +12,9 @@ export const GifGrid = ({ category }) => {
 
 	return (
 		<>
-			<h2> { category } </h2>
+			<h2 className="animate__animated animate__fadeIn"> { category } </h2>
 			
-			{ loading && <p> Loading... </p> }
+			{ loading && <p className="animate__animated animate__flash"> Loading... </p> }
 
 			<div className="card-grid">
 				{
